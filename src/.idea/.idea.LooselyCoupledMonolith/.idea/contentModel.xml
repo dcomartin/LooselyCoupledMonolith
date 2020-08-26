@@ -37,19 +37,21 @@
       <e p="packages" t="ExcludeRecursive" />
       <e p="Sales" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
-        <e p="Class1.cs" t="Include" />
+        <e p="ConfigureServices.cs" t="Include" />
+        <e p="Endpoints.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
-            <e p="netstandard2.0" t="Include">
+            <e p="netcoreapp3.1" t="Include">
               <e p="Sales.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
         </e>
+        <e p="Order.cs" t="Include" />
         <e p="Sales.csproj" t="IncludeRecursive" />
+        <e p="SalesDbContext.cs" t="Include" />
       </e>
       <e p="Sales.Contracts" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
-        <e p="Class1.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netstandard2.0" t="Include">
@@ -57,10 +59,12 @@
             </e>
           </e>
         </e>
+        <e p="OrderPlaced.cs" t="Include" />
         <e p="Sales.Contracts.csproj" t="IncludeRecursive" />
       </e>
       <e p="Sales.Tests" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
+        <e p="ConfigureServicesTests.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
@@ -69,14 +73,14 @@
           </e>
         </e>
         <e p="Sales.Tests.csproj" t="IncludeRecursive" />
-        <e p="UnitTest1.cs" t="Include" />
       </e>
       <e p="Shipping" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
-        <e p="Class1.cs" t="Include" />
+        <e p="ConfigureServices.cs" t="Include" />
+        <e p="Endpoints.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
-            <e p="netstandard2.0" t="Include">
+            <e p="netcoreapp3.1" t="Include">
               <e p="Shipping.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
