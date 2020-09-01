@@ -1,6 +1,10 @@
+using System;
+using DotNetCore.CAP;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.Extensions.DependencyInjection;
+using Sales.Contracts;
 
 namespace Sales
 {
@@ -8,9 +12,15 @@ namespace Sales
     {
         public static void MapSales(this IEndpointRouteBuilder endpoints)
         {
-            endpoints.MapGet("/sales", async context =>
+            endpoints.MapPost("/sales", async context =>
             {
-                await context.Response.WriteAsync("Hello World!");
+                var orderPlaced = new OrderPlaced
+                {
+                    OrderId = Guid.NewGuid()
+                };
+                await context.RequestServices.GetService<ICapPublisher>().PublishAsync(nameof(OrderPlaced), orderPlaced);
+
+                await context.Response.WriteAsync($"Order {orderPlaced.OrderId} has been placed.");
             });
         }
     }

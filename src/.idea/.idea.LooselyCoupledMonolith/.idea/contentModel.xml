@@ -77,6 +77,7 @@
       <e p="Shipping" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="ConfigureServices.cs" t="Include" />
+        <e p="CreateShippingLabel.cs" t="Include" />
         <e p="Endpoints.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -89,7 +90,6 @@
       </e>
       <e p="Shipping.Contracts" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
-        <e p="Class1.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netstandard2.0" t="Include">

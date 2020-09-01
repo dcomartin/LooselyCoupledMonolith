@@ -1,6 +1,4 @@
-﻿using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Sales;
 using Shipping;
@@ -20,17 +18,13 @@ namespace Worker
                 {
                     services.AddSales();
                     services.AddShipping();
-                    services.AddHostedService<MessageProcessorBackgroundService>();
-                });
-    }
 
-    class MessageProcessorBackgroundService : BackgroundService
-    {
-        protected override Task ExecuteAsync(CancellationToken stoppingToken)
-        {
-            // This is the top level that would be using a message broker and dispatching
-            // messages to the relevant handlers.
-            return Task.CompletedTask;
-        }
+                    services.AddCap(options =>
+                    {
+                        options.UseInMemoryStorage();
+                        options.UseRabbitMQ("localhost");
+                    });
+
+                });
     }
 }

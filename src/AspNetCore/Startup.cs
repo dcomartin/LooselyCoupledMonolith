@@ -1,3 +1,4 @@
+using DotNetCore.CAP;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,6 +16,14 @@ namespace AspNetCore
         {
             services.AddSales();
             services.AddShipping();
+
+            services.AddCap(options =>
+            {
+                options.ConsumerThreadCount = 0;
+                options.UseInMemoryStorage();
+                options.UseRabbitMQ("localhost");
+                options.UseDashboard();
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -26,6 +35,8 @@ namespace AspNetCore
             }
 
             app.UseRouting();
+
+            app.UseCapDashboard();
 
             app.UseEndpoints(endpoints =>
             {

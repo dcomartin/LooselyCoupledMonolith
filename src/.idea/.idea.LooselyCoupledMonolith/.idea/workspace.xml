@@ -26,24 +26,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7bd1a5c0-e260-4d68-bcc3-2ec5c84ff210" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Sales.Contracts/OrderPlaced.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sales.Tests/ConfigureServicesTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sales/Endpoints.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sales/Order.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Sales/SalesDbContext.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Shipping/Endpoints.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Shipping/CreateShippingLabel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LooselyCoupledMonolith/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LooselyCoupledMonolith/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LooselyCoupledMonolith/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LooselyCoupledMonolith/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AspNetCore/AspNetCore.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/AspNetCore/AspNetCore.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AspNetCore/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AspNetCore/Startup.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LooselyCoupledMonolith.sln" beforeDir="false" afterPath="$PROJECT_DIR$/LooselyCoupledMonolith.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sales.Contracts/Class1.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sales.Tests/Sales.Tests.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Sales.Tests/Sales.Tests.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sales.Tests/UnitTest1.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sales/Class1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sales/ConfigureServices.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sales.Contracts/OrderPlaced.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sales.Contracts/OrderPlaced.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sales/Endpoints.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Sales/Endpoints.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Sales/Sales.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Sales/Sales.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shipping/Class1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Shipping/ConfigureServices.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shipping.Contracts/Class1.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Shipping/ConfigureServices.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Shipping/ConfigureServices.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Shipping/Shipping.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Shipping/Shipping.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Worker/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Worker/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Worker/Worker.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Worker/Worker.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,25 +50,32 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/EDAD86E2-0035-4DB5-A463-CD958DE39621/2/BackgroundService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Sales/Endpoints.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/DB5C90CB-A10C-4BF1-A233-F8E597A889B9/8/ServiceProvider.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Sales/SalesDbContext.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Worker/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9CD23B5E-3B0C-4F80-A807-33BCFD1D82E1/1E0/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Shipping/ConfigureServices.cs" />
-        <option value="$PROJECT_DIR$/Sales.Contracts/OrderPlaced.cs" />
         <option value="$PROJECT_DIR$/Sales/ConfigureServices.cs" />
         <option value="$PROJECT_DIR$/Sales/Order.cs" />
         <option value="$PROJECT_DIR$/Sales/SalesDbContext.cs" />
         <option value="$PROJECT_DIR$/Sales.Tests/Sales.Tests.csproj" />
         <option value="$PROJECT_DIR$/Sales.Tests/UnitTest1.cs" />
+        <option value="$PROJECT_DIR$/Shipping/Endpoints.cs" />
+        <option value="$PROJECT_DIR$/Shipping/Shipping.csproj" />
+        <option value="$PROJECT_DIR$/Sales.Contracts/OrderPlaced.cs" />
+        <option value="$PROJECT_DIR$/Sales/Sales.csproj" />
+        <option value="$PROJECT_DIR$/Worker/Worker.csproj" />
+        <option value="$PROJECT_DIR$/AspNetCore/AspNetCore.csproj" />
+        <option value="$PROJECT_DIR$/AspNetCore/Startup.cs" />
+        <option value="$PROJECT_DIR$/Shipping/ConfigureServices.cs" />
+        <option value="$PROJECT_DIR$/Shipping/CreateShippingLabel.cs" />
         <option value="$PROJECT_DIR$/Worker/Program.cs" />
         <option value="$PROJECT_DIR$/Sales/Endpoints.cs" />
-        <option value="$PROJECT_DIR$/Shipping/Endpoints.cs" />
-        <option value="$PROJECT_DIR$/AspNetCore/Startup.cs" />
-        <option value="$PROJECT_DIR$/Sales/Sales.csproj" />
-        <option value="$PROJECT_DIR$/Shipping/Shipping.csproj" />
       </list>
     </option>
   </component>
@@ -89,9 +92,37 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.AspNetCore">
+  <component name="RunManager" selected="Compound.AspnetCore + Worker">
+    <configuration name="AspnetCore + Worker" type="CompoundRunConfigurationType">
+      <toRun name="Worker" type="DotNetProject" />
+      <toRun name="AspNetCore" type="DotNetProject" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="CompoundRunConfigurationType">
+      <toRun name="Worker" type="DotNetProject" />
+      <toRun name="AspNetCore" type="DotNetProject" />
+      <method v="2" />
+    </configuration>
+    <configuration name="AspNetCore" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/AspNetCore/bin/Debug/netcoreapp3.1/AspNetCore.dll" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/AspNetCore" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/AspNetCore/AspNetCore.csproj" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="DotNetCore" />
+      <option name="PROJECT_TFM" value=".NETCoreApp,Version=v3.1" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
     <configuration name="Sales" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -104,7 +135,7 @@
       <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
       <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
       <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
-      <option name="PROJECT_KIND" value="DotNetCore" />
+      <option name="PROJECT_KIND" value="Unloaded" />
       <option name="PROJECT_TFM" value="" />
       <method v="2">
         <option name="Build" />
@@ -122,16 +153,16 @@
       <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
       <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
       <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
-      <option name="PROJECT_KIND" value="DotNetCore" />
+      <option name="PROJECT_KIND" value="Unloaded" />
       <option name="PROJECT_TFM" value="" />
       <method v="2">
         <option name="Build" />
       </method>
     </configuration>
     <configuration name="Worker" type="DotNetProject" factoryName=".NET Project">
-      <option name="EXE_PATH" value="" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/Worker/bin/Debug/netcoreapp3.1/Worker.dll" />
       <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Worker/bin/Debug/netcoreapp3.1" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="USE_MONO" value="0" />
@@ -141,7 +172,7 @@
       <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
       <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
       <option name="PROJECT_KIND" value="DotNetCore" />
-      <option name="PROJECT_TFM" value="" />
+      <option name="PROJECT_TFM" value=".NETCoreApp,Version=v3.1" />
       <method v="2">
         <option name="Build" />
       </method>
@@ -176,6 +207,15 @@
         <option name="Build" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue=".NET Launch Settings Profile.AspNetCore" />
+      <item itemvalue=".NET Launch Settings Profile.AspNetCore: IIS Express" />
+      <item itemvalue=".NET Project.AspNetCore" />
+      <item itemvalue=".NET Project.Worker" />
+      <item itemvalue=".NET Project.Sales" />
+      <item itemvalue=".NET Project.Shipping" />
+      <item itemvalue="Compound.AspnetCore + Worker" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -187,6 +227,8 @@
       <updated>1598392221269</updated>
       <workItem from="1598392228440" duration="2621000" />
       <workItem from="1598477825296" duration="130000" />
+      <workItem from="1598907654441" duration="1699000" />
+      <workItem from="1598993226898" duration="630000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Demo Solution Structure with References">
       <created>1598392765154</created>
@@ -229,89 +271,120 @@
     <option name="LAST_COMMIT_MESSAGE" value="Ignore .idea" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="2517" height="519" key="GridCell.Tab.0.bottom" timestamp="1598401241032">
+    <state x="736" y="356" width="1089" height="761" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1598908968407">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="519" key="GridCell.Tab.0.bottom/0.0.2560.1400/3840.0.2560.1440@0.0.2560.1400" timestamp="1598401241032" />
-    <state width="2517" height="519" key="GridCell.Tab.0.center" timestamp="1598401241032">
+    <state x="736" y="356" width="1089" height="761" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1400/3840.0.2560.1440@0.0.2560.1400" timestamp="1598908968407" />
+    <state width="2517" height="464" key="GridCell.Tab.0.bottom" timestamp="1598909365547">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="519" key="GridCell.Tab.0.center/0.0.2560.1400/3840.0.2560.1440@0.0.2560.1400" timestamp="1598401241032" />
-    <state width="2517" height="519" key="GridCell.Tab.0.left" timestamp="1598401241032">
+    <state width="2517" height="464" key="GridCell.Tab.0.bottom/0.0.2560.1400/3840.0.2560.1440@0.0.2560.1400" timestamp="1598909365547" />
+    <state width="2517" height="464" key="GridCell.Tab.0.center" timestamp="1598909365547">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="519" key="GridCell.Tab.0.left/0.0.2560.1400/3840.0.2560.1440@0.0.2560.1400" timestamp="1598401241032" />
-    <state width="2517" height="519" key="GridCell.Tab.0.right" timestamp="1598401241032">
+    <state width="2517" height="464" key="GridCell.Tab.0.center/0.0.2560.1400/3840.0.2560.1440@0.0.2560.1400" timestamp="1598909365547" />
+    <state width="2517" height="464" key="GridCell.Tab.0.left" timestamp="1598909365547">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="519" key="GridCell.Tab.0.right/0.0.2560.1400/3840.0.2560.1440@0.0.2560.1400" timestamp="1598401241032" />
-    <state width="2517" height="519" key="GridCell.Tab.1.bottom" timestamp="1598401241033">
+    <state width="2517" height="464" key="GridCell.Tab.0.left/0.0.2560.1400/3840.0.2560.1440@0.0.2560.1400" timestamp="1598909365547" />
+    <state width="2517" height="464" key="GridCell.Tab.0.right" timestamp="1598909365547">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="519" key="GridCell.Tab.1.bottom/0.0.2560.1400/3840.0.2560.1440@0.0.2560.1400" timestamp="1598401241033" />
-    <state width="2517" height="519" key="GridCell.Tab.1.center" timestamp="1598401241033">
+    <state width="2517" height="464" key="GridCell.Tab.0.right/0.0.2560.1400/3840.0.2560.1440@0.0.2560.1400" timestamp="1598909365547" />
+    <state width="2517" height="464" key="GridCell.Tab.1.bottom" timestamp="1598909365547">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="519" key="GridCell.Tab.1.center/0.0.2560.1400/3840.0.2560.1440@0.0.2560.1400" timestamp="1598401241033" />
-    <state width="2517" height="519" key="GridCell.Tab.1.left" timestamp="1598401241032">
+    <state width="2517" height="464" key="GridCell.Tab.1.bottom/0.0.2560.1400/3840.0.2560.1440@0.0.2560.1400" timestamp="1598909365547" />
+    <state width="2517" height="464" key="GridCell.Tab.1.center" timestamp="1598909365547">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="519" key="GridCell.Tab.1.left/0.0.2560.1400/3840.0.2560.1440@0.0.2560.1400" timestamp="1598401241032" />
-    <state width="2517" height="519" key="GridCell.Tab.1.right" timestamp="1598401241033">
+    <state width="2517" height="464" key="GridCell.Tab.1.center/0.0.2560.1400/3840.0.2560.1440@0.0.2560.1400" timestamp="1598909365547" />
+    <state width="2517" height="464" key="GridCell.Tab.1.left" timestamp="1598909365547">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="519" key="GridCell.Tab.1.right/0.0.2560.1400/3840.0.2560.1440@0.0.2560.1400" timestamp="1598401241033" />
-    <state width="2517" height="519" key="GridCell.Tab.2.bottom" timestamp="1598401241033">
+    <state width="2517" height="464" key="GridCell.Tab.1.left/0.0.2560.1400/3840.0.2560.1440@0.0.2560.1400" timestamp="1598909365547" />
+    <state width="2517" height="464" key="GridCell.Tab.1.right" timestamp="1598909365547">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="519" key="GridCell.Tab.2.bottom/0.0.2560.1400/3840.0.2560.1440@0.0.2560.1400" timestamp="1598401241033" />
-    <state width="2517" height="519" key="GridCell.Tab.2.center" timestamp="1598401241033">
+    <state width="2517" height="464" key="GridCell.Tab.1.right/0.0.2560.1400/3840.0.2560.1440@0.0.2560.1400" timestamp="1598909365547" />
+    <state width="2517" height="464" key="GridCell.Tab.2.bottom" timestamp="1598909365547">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="519" key="GridCell.Tab.2.center/0.0.2560.1400/3840.0.2560.1440@0.0.2560.1400" timestamp="1598401241033" />
-    <state width="2517" height="519" key="GridCell.Tab.2.left" timestamp="1598401241033">
+    <state width="2517" height="464" key="GridCell.Tab.2.bottom/0.0.2560.1400/3840.0.2560.1440@0.0.2560.1400" timestamp="1598909365547" />
+    <state width="2517" height="464" key="GridCell.Tab.2.center" timestamp="1598909365547">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="519" key="GridCell.Tab.2.left/0.0.2560.1400/3840.0.2560.1440@0.0.2560.1400" timestamp="1598401241033" />
-    <state width="2517" height="519" key="GridCell.Tab.2.right" timestamp="1598401241033">
+    <state width="2517" height="464" key="GridCell.Tab.2.center/0.0.2560.1400/3840.0.2560.1440@0.0.2560.1400" timestamp="1598909365547" />
+    <state width="2517" height="464" key="GridCell.Tab.2.left" timestamp="1598909365547">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="519" key="GridCell.Tab.2.right/0.0.2560.1400/3840.0.2560.1440@0.0.2560.1400" timestamp="1598401241033" />
-    <state width="2517" height="519" key="GridCell.Tab.3.bottom" timestamp="1598401241033">
+    <state width="2517" height="464" key="GridCell.Tab.2.left/0.0.2560.1400/3840.0.2560.1440@0.0.2560.1400" timestamp="1598909365547" />
+    <state width="2517" height="464" key="GridCell.Tab.2.right" timestamp="1598909365547">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="519" key="GridCell.Tab.3.bottom/0.0.2560.1400/3840.0.2560.1440@0.0.2560.1400" timestamp="1598401241033" />
-    <state width="2517" height="519" key="GridCell.Tab.3.center" timestamp="1598401241033">
+    <state width="2517" height="464" key="GridCell.Tab.2.right/0.0.2560.1400/3840.0.2560.1440@0.0.2560.1400" timestamp="1598909365547" />
+    <state width="2517" height="464" key="GridCell.Tab.3.bottom" timestamp="1598909365547">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="519" key="GridCell.Tab.3.center/0.0.2560.1400/3840.0.2560.1440@0.0.2560.1400" timestamp="1598401241033" />
-    <state width="2517" height="519" key="GridCell.Tab.3.left" timestamp="1598401241033">
+    <state width="2517" height="464" key="GridCell.Tab.3.bottom/0.0.2560.1400/3840.0.2560.1440@0.0.2560.1400" timestamp="1598909365547" />
+    <state width="2517" height="464" key="GridCell.Tab.3.center" timestamp="1598909365547">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="519" key="GridCell.Tab.3.left/0.0.2560.1400/3840.0.2560.1440@0.0.2560.1400" timestamp="1598401241033" />
-    <state width="2517" height="519" key="GridCell.Tab.3.right" timestamp="1598401241033">
+    <state width="2517" height="464" key="GridCell.Tab.3.center/0.0.2560.1400/3840.0.2560.1440@0.0.2560.1400" timestamp="1598909365547" />
+    <state width="2517" height="464" key="GridCell.Tab.3.left" timestamp="1598909365547">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="519" key="GridCell.Tab.3.right/0.0.2560.1400/3840.0.2560.1440@0.0.2560.1400" timestamp="1598401241033" />
-    <state width="2517" height="519" key="GridCell.Tab.4.bottom" timestamp="1598401241033">
+    <state width="2517" height="464" key="GridCell.Tab.3.left/0.0.2560.1400/3840.0.2560.1440@0.0.2560.1400" timestamp="1598909365547" />
+    <state width="2517" height="464" key="GridCell.Tab.3.right" timestamp="1598909365547">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="519" key="GridCell.Tab.4.bottom/0.0.2560.1400/3840.0.2560.1440@0.0.2560.1400" timestamp="1598401241033" />
-    <state width="2517" height="519" key="GridCell.Tab.4.center" timestamp="1598401241033">
+    <state width="2517" height="464" key="GridCell.Tab.3.right/0.0.2560.1400/3840.0.2560.1440@0.0.2560.1400" timestamp="1598909365547" />
+    <state width="2517" height="464" key="GridCell.Tab.4.bottom" timestamp="1598909365547">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="519" key="GridCell.Tab.4.center/0.0.2560.1400/3840.0.2560.1440@0.0.2560.1400" timestamp="1598401241033" />
-    <state width="2517" height="519" key="GridCell.Tab.4.left" timestamp="1598401241033">
+    <state width="2517" height="464" key="GridCell.Tab.4.bottom/0.0.2560.1400/3840.0.2560.1440@0.0.2560.1400" timestamp="1598909365547" />
+    <state width="2517" height="464" key="GridCell.Tab.4.center" timestamp="1598909365547">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="519" key="GridCell.Tab.4.left/0.0.2560.1400/3840.0.2560.1440@0.0.2560.1400" timestamp="1598401241033" />
-    <state width="2517" height="519" key="GridCell.Tab.4.right" timestamp="1598401241033">
+    <state width="2517" height="464" key="GridCell.Tab.4.center/0.0.2560.1400/3840.0.2560.1440@0.0.2560.1400" timestamp="1598909365547" />
+    <state width="2517" height="464" key="GridCell.Tab.4.left" timestamp="1598909365547">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="519" key="GridCell.Tab.4.right/0.0.2560.1400/3840.0.2560.1440@0.0.2560.1400" timestamp="1598401241033" />
-    <state x="782" y="346" key="SettingsEditor" timestamp="1598477858187">
+    <state width="2517" height="464" key="GridCell.Tab.4.left/0.0.2560.1400/3840.0.2560.1440@0.0.2560.1400" timestamp="1598909365547" />
+    <state width="2517" height="464" key="GridCell.Tab.4.right" timestamp="1598909365547">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="782" y="346" key="SettingsEditor/0.0.2560.1400/3840.0.2560.1440@0.0.2560.1400" timestamp="1598477858187" />
+    <state width="2517" height="464" key="GridCell.Tab.4.right/0.0.2560.1400/3840.0.2560.1440@0.0.2560.1400" timestamp="1598909365547" />
+    <state x="782" y="346" key="SettingsEditor" timestamp="1598994192601">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="782" y="346" key="SettingsEditor/0.0.2560.1400/3840.0.2560.1440@0.0.2560.1400" timestamp="1598994192601" />
+    <state width="1288" height="708" key="XDebugger.FullValuePopup" timestamp="1598908547760">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="1288" height="708" key="XDebugger.FullValuePopup/0.0.2560.1400/3840.0.2560.1440@0.0.2560.1400" timestamp="1598908547760" />
+    <state x="959" y="433" width="642" height="534" key="find.popup" timestamp="1598908382000">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="959" y="433" width="642" height="534" key="find.popup/0.0.2560.1400/3840.0.2560.1440@0.0.2560.1400" timestamp="1598908382000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Shipping/CreateShippingLabel.cs</url>
+          <line>18</line>
+          <properties documentPath="C:\Users\Derek\Documents\GitHub\LooselyCoupledMonolith\src\Shipping\CreateShippingLabel.cs" initialLine="18">
+            <startOffsets>
+              <option value="467" />
+            </startOffsets>
+            <endOffsets>
+              <option value="570" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
