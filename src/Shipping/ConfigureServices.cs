@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using MediatR;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Shipping
 {
@@ -7,6 +8,7 @@ namespace Shipping
         public static void AddShipping(this IServiceCollection serviceCollection)
         {
             serviceCollection.AddTransient<CreateShippingLabel>();
+            serviceCollection.AddMediatR(typeof(ConfigureServices).Assembly);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Hangfire;
+using Hangfire.MediatR;
 using Microsoft.Extensions.Hosting;
 using Sales;
 using Shipping;
@@ -19,12 +20,14 @@ namespace Worker
                     services.AddSales();
                     services.AddShipping();
 
-                    services.AddCap(options =>
+                    services.AddHangfire(configuration =>
                     {
-                        options.UseInMemoryStorage();
-                        options.UseRabbitMQ("localhost");
+                        configuration.UseSqlServerStorage("Server=localhost\\SQLEXPRESS;Database=Hangfire;Trusted_Connection=True;");
                     });
 
+                    services.AddHangfireServer();
+
+                    services.AddHangfireMessaging();
                 });
     }
 }

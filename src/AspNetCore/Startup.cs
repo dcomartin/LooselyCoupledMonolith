@@ -1,4 +1,5 @@
-using DotNetCore.CAP;
+using Hangfire;
+using Hangfire.MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,14 +17,13 @@ namespace AspNetCore
         {
             services.AddSales();
             services.AddShipping();
+            services.AddMvc();
 
-            services.AddCap(options =>
+            services.AddHangfire(configuration =>
             {
-                options.ConsumerThreadCount = 0;
-                options.UseInMemoryStorage();
-                options.UseRabbitMQ("localhost");
-                options.UseDashboard();
+                configuration.UseSqlServerStorage("Server=localhost\\SQLEXPRESS;Database=Hangfire;Trusted_Connection=True;");
             });
+            services.AddHangfireMessaging();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -36,12 +36,10 @@ namespace AspNetCore
 
             app.UseRouting();
 
-            app.UseCapDashboard();
-
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapSales();
-                endpoints.MapShipping();
+                endpoints.MapControllers();
+                endpoints.MapHangfireDashboard("/hangfire");
             });
         }
     }

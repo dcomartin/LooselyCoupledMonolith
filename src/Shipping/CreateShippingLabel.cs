@@ -1,10 +1,12 @@
-using DotNetCore.CAP;
+using System.Threading;
+using System.Threading.Tasks;
+using MediatR;
 using Microsoft.Extensions.Logging;
 using Sales.Contracts;
 
 namespace Shipping
 {
-    public class CreateShippingLabel : ICapSubscribe
+    public class CreateShippingLabel : INotificationHandler<OrderPlaced>
     {
         private readonly ILogger<CreateShippingLabel> _logger;
 
@@ -13,10 +15,10 @@ namespace Shipping
             _logger = logger;
         }
 
-        [CapSubscribe(nameof(OrderPlaced))]
-        public void Handle(OrderPlaced orderPlaced)
+        public Task Handle(OrderPlaced notification, CancellationToken cancellationToken)
         {
-            _logger.LogInformation($"Order {orderPlaced.OrderId} was placed... lets create a new shipping label.");
+            _logger.LogInformation($"Order {notification.OrderId} was placed... lets create a new shipping label.");
+            return Task.CompletedTask;
         }
     }
 }

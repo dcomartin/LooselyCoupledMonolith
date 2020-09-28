@@ -9,12 +9,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="MediatR" Version="8.1.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="8.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.7" />
-    <PackageReference Include="DotNetCore.CAP" Version="3.1.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.7" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Hangfire.MediatR\Hangfire.MediatR.csproj" />
     <ProjectReference Include="..\Sales.Contracts\Sales.Contracts.csproj" />
     <ProjectReference Include="..\Shipping.Contracts\Shipping.Contracts.csproj" />
   </ItemGroup>

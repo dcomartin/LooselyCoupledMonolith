@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Worker", "Worker\Worker.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCore", "AspNetCore\AspNetCore.csproj", "{4986376E-4D3C-4751-99FE-176F61A0BAA2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hangfire.MediatR", "Hangfire.MediatR\Hangfire.MediatR.csproj", "{D9DF5BE3-10D4-4C5A-9B4D-62F0122BCDE1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -132,6 +134,18 @@ Global
 		{4986376E-4D3C-4751-99FE-176F61A0BAA2}.Release|x64.Build.0 = Release|Any CPU
 		{4986376E-4D3C-4751-99FE-176F61A0BAA2}.Release|x86.ActiveCfg = Release|Any CPU
 		{4986376E-4D3C-4751-99FE-176F61A0BAA2}.Release|x86.Build.0 = Release|Any CPU
+		{D9DF5BE3-10D4-4C5A-9B4D-62F0122BCDE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9DF5BE3-10D4-4C5A-9B4D-62F0122BCDE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9DF5BE3-10D4-4C5A-9B4D-62F0122BCDE1}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{D9DF5BE3-10D4-4C5A-9B4D-62F0122BCDE1}.Debug|x64.Build.0 = Debug|Any CPU
+		{D9DF5BE3-10D4-4C5A-9B4D-62F0122BCDE1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D9DF5BE3-10D4-4C5A-9B4D-62F0122BCDE1}.Debug|x86.Build.0 = Debug|Any CPU
+		{D9DF5BE3-10D4-4C5A-9B4D-62F0122BCDE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9DF5BE3-10D4-4C5A-9B4D-62F0122BCDE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9DF5BE3-10D4-4C5A-9B4D-62F0122BCDE1}.Release|x64.ActiveCfg = Release|Any CPU
+		{D9DF5BE3-10D4-4C5A-9B4D-62F0122BCDE1}.Release|x64.Build.0 = Release|Any CPU
+		{D9DF5BE3-10D4-4C5A-9B4D-62F0122BCDE1}.Release|x86.ActiveCfg = Release|Any CPU
+		{D9DF5BE3-10D4-4C5A-9B4D-62F0122BCDE1}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{018A96A1-C587-43C6-BB9C-12AB654F6CC6} = {7D57F573-B99C-45B1-A5C3-5710F7E4083B}

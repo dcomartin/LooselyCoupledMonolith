@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using MediatR;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Sales
 {
@@ -7,6 +8,7 @@ namespace Sales
         public static void AddSales(this IServiceCollection serviceCollection)
         {
             serviceCollection.AddDbContext<SalesDbContext>();
+            serviceCollection.AddMediatR(typeof(ConfigureServices).Assembly);
         }
     }
 }

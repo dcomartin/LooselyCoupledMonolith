@@ -6,13 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Hangfire.MediatR\Hangfire.MediatR.csproj" />
     <ProjectReference Include="..\Sales\Sales.csproj" />
     <ProjectReference Include="..\Shipping\Shipping.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="DotNetCore.CAP.RabbitMQ" Version="3.1.0" />
-    <PackageReference Include="DotNetCore.CAP.InMemoryStorage" Version="3.1.0" />
+    <PackageReference Include="HangFire" Version="1.7.14" />
   </ItemGroup>
 
 </Project>
