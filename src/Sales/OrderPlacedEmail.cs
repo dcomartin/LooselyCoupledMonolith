@@ -3,13 +3,13 @@ using Microsoft.Extensions.Logging;
 using Paramore.Brighter;
 using Sales.Contracts;
 
-namespace Shipping
+namespace Sales
 {
-    public class CreateShippingLabel : RequestHandler<OrderPlaced>
+    public class OrderPlacedEmail : RequestHandler<OrderPlaced>
     {
-        private readonly ILogger<CreateShippingLabel> _logger;
+        private readonly ILogger<OrderPlacedEmail> _logger;
 
-        public CreateShippingLabel(ILogger<CreateShippingLabel> logger)
+        public OrderPlacedEmail(ILogger<OrderPlacedEmail> logger)
         {
             _logger = logger;
         }

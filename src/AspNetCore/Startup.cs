@@ -1,8 +1,13 @@
+using System;
 using DotNetCore.CAP;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using Paramore.Brighter;
+using Paramore.Brighter.Extensions.DependencyInjection;
+using Paramore.Brighter.MessagingGateway.RMQ;
 using Sales;
 using Shipping;
 
@@ -14,16 +19,29 @@ namespace AspNetCore
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllers();
+
             services.AddSales();
             services.AddShipping();
 
-            services.AddCap(options =>
-            {
-                options.ConsumerThreadCount = 0;
-                options.UseInMemoryStorage();
-                options.UseRabbitMQ("localhost");
-                options.UseDashboard();
-            });
+            services
+                .AddLogging(builder =>
+                {
+                    builder.SetMinimumLevel(LogLevel.Trace);
+                    builder.AddConsole();
+                })
+                .AddBrighter(options =>
+                {
+                    var messageStore = new InMemoryMessageStore();
+                    var rmq = new RmqMessageProducer(new RmqMessagingGatewayConnection
+                    {
+                        AmpqUri = new AmqpUriSpecification(new Uri("amqp://guest:guest@localhost:5672")),
+                        Exchange = new Exchange("demo")
+                    });
+                    options.BrighterMessaging = new BrighterMessaging(messageStore, rmq);
+                })
+                .AddSales()
+                .AddShipping();;
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -36,12 +54,11 @@ namespace AspNetCore
 
             app.UseRouting();
 
-            app.UseCapDashboard();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapSales();
                 endpoints.MapShipping();
+                endpoints.MapControllers();
             });
         }
     }

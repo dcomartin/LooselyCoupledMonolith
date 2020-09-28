@@ -21,7 +21,9 @@ namespace Sales
                 await context.RequestServices.GetService<ICapPublisher>().PublishAsync(nameof(OrderPlaced), orderPlaced);
 
                 await context.Response.WriteAsync($"Order {orderPlaced.OrderId} has been placed.");
+
             });
+
         }
     }
 }
