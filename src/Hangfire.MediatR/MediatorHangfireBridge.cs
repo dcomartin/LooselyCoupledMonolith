@@ -13,6 +13,11 @@ namespace Hangfire.MediatR
             _mediator = mediator;
         }
 
+        public async Task Send(IRequest command)
+        {
+            await _mediator.Send(command);
+        }
+
         [DisplayName("{0}")]
         public async Task Send(string jobName, IRequest command)
         {
