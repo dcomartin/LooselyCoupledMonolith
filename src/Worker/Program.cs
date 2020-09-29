@@ -23,11 +23,10 @@ namespace Worker
                     services.AddHangfire(configuration =>
                     {
                         configuration.UseSqlServerStorage("Server=localhost\\SQLEXPRESS;Database=Hangfire;Trusted_Connection=True;");
+                        configuration.UseMediatR();
                     });
 
                     services.AddHangfireServer();
-
-                    services.AddHangfireMessaging();
                 });
     }
 }

@@ -1,21 +1,16 @@
-using System;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json;
 
 namespace Hangfire.MediatR
 {
     public static class HangfireConfigurationExtensions
     {
-        public static void AddHangfireMessaging(this IServiceCollection serviceCollection)
+        public static void UseMediatR(this IGlobalConfiguration configuration)
         {
-            var jsonSerializerSettings =  new JsonSerializerSettings
+            var jsonSettings = new JsonSerializerSettings
             {
-                TypeNameHandling = TypeNameHandling.All,
+                TypeNameHandling = TypeNameHandling.All
             };
-            GlobalConfiguration.Configuration.UseSerializerSettings(jsonSerializerSettings);
+            configuration.UseSerializerSettings(jsonSettings);
         }
     }
 }

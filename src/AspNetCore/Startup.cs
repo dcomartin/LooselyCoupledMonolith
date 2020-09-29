@@ -22,8 +22,8 @@ namespace AspNetCore
             services.AddHangfire(configuration =>
             {
                 configuration.UseSqlServerStorage("Server=localhost\\SQLEXPRESS;Database=Hangfire;Trusted_Connection=True;");
+                configuration.UseMediatR();
             });
-            services.AddHangfireMessaging();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
