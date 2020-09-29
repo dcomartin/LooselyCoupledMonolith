@@ -27,7 +27,6 @@ namespace Hangfire.MediatR
 
         public Task StartAsync(CancellationToken cancellationToken)
         {
-            GlobalConfiguration.Configuration.UseActivator(new MediatorJobActivator(_serviceProvider));
             var jsonSerializerSettings =  new JsonSerializerSettings
             {
                 TypeNameHandling = TypeNameHandling.All,
