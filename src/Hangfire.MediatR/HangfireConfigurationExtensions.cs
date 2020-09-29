@@ -11,34 +11,11 @@ namespace Hangfire.MediatR
     {
         public static void AddHangfireMessaging(this IServiceCollection serviceCollection)
         {
-            serviceCollection.AddSingleton<MediatorHangfireBridge>();
-            serviceCollection.AddHostedService<HangfireMediatorHostedService>();
-        }
-    }
-
-    public class HangfireMediatorHostedService : IHostedService
-    {
-        private readonly IServiceProvider _serviceProvider;
-
-        public HangfireMediatorHostedService(IServiceProvider serviceProvider)
-        {
-            _serviceProvider = serviceProvider;
-        }
-
-        public Task StartAsync(CancellationToken cancellationToken)
-        {
             var jsonSerializerSettings =  new JsonSerializerSettings
             {
                 TypeNameHandling = TypeNameHandling.All,
             };
             GlobalConfiguration.Configuration.UseSerializerSettings(jsonSerializerSettings);
-
-            return Task.CompletedTask;
-        }
-
-        public Task StopAsync(CancellationToken cancellationToken)
-        {
-            return Task.CompletedTask;
         }
     }
 }
