@@ -19,6 +19,11 @@ namespace Sales
             var order = await _dbContext.Orders.SingleAsync(x => x.OrderId == message.OrderId);
             order.Status = OrderStatus.Cancelled;
             await _dbContext.SaveChangesAsync();
+
+            await context.Publish<OrderCancelled>(cancelled =>
+            {
+                cancelled.OrderId = message.OrderId;
+            });
         }
     }
 }

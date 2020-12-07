@@ -5,11 +5,11 @@ using Sales.Contracts;
 
 namespace Shipping
 {
-    public class CancelShippingLabel : IHandleMessages<OrderCancelled>
+    public class CancelShippingLabelHandler : IHandleMessages<OrderCancelled>
     {
         private readonly ShippingDbContext _dbContext;
 
-        public CancelShippingLabel(ShippingDbContext dbContext)
+        public CancelShippingLabelHandler(ShippingDbContext dbContext)
         {
             _dbContext = dbContext;
         }

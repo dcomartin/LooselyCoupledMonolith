@@ -7,13 +7,13 @@ using Shipping.Contracts;
 
 namespace Sales
 {
-    public class ChangeOrderStatusToReadyToShip :
+    public class ReadyToShipHandler :
         IHandleMessages<ShippingLabelCreated>,
         IHandleMessages<ReadyToShipOrder>
     {
         private readonly SalesDbContext _dbContext;
 
-        public ChangeOrderStatusToReadyToShip(SalesDbContext dbContext)
+        public ReadyToShipHandler(SalesDbContext dbContext)
         {
             _dbContext = dbContext;
         }
