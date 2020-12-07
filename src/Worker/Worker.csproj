@@ -6,12 +6,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Billing\Billing.csproj" />
     <ProjectReference Include="..\Sales\Sales.csproj" />
     <ProjectReference Include="..\Shipping\Shipping.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="NServiceBus" Version="7.4.4" />
+    <PackageReference Include="NServiceBus.Extensions.Hosting" Version="1.1.0" />
   </ItemGroup>
 
 </Project>

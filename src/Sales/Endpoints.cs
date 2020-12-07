@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Routing;
+using NServiceBus;
+using Sales.Contracts;
 
 namespace Sales
 {
@@ -7,6 +9,13 @@ namespace Sales
         public static void MapSales(this IEndpointRouteBuilder endpoints)
         {
 
+        }
+
+        public static void MapSales(this RoutingSettings<LearningTransport> routing)
+        {
+            routing.RouteToEndpoint(
+                assembly: typeof(OrderPlaced).Assembly,
+                destination: "LooselyCoupledMonolith");
         }
     }
 }

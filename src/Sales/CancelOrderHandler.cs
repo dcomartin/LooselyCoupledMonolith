@@ -1,23 +1,23 @@
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using NServiceBus;
-using Shipping.Contracts;
+using Sales.Contracts;
 
 namespace Sales
 {
-    public class ChangeOrderStatus : IHandleMessages<ShippingLabelCreated>
+    public class CancelOrderHandler : IHandleMessages<CancelOrder>
     {
         private readonly SalesDbContext _dbContext;
 
-        public ChangeOrderStatus(SalesDbContext dbContext)
+        public CancelOrderHandler(SalesDbContext dbContext)
         {
             _dbContext = dbContext;
         }
 
-        public async Task Handle(ShippingLabelCreated message, IMessageHandlerContext context)
+        public async Task Handle(CancelOrder message, IMessageHandlerContext context)
         {
             var order = await _dbContext.Orders.SingleAsync(x => x.OrderId == message.OrderId);
-            order.Status = OrderStatus.ReadyToShip;
+            order.Status = OrderStatus.Cancelled;
             await _dbContext.SaveChangesAsync();
         }
     }

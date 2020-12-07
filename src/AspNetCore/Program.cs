@@ -1,7 +1,11 @@
+using Billing;
+using Billing.Contracts;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using NServiceBus;
+using Sales;
 using Sales.Contracts;
+using Shipping;
 using Shipping.Contracts;
 
 namespace AspNetCore
@@ -22,16 +26,11 @@ namespace AspNetCore
                     var persistence = endpointConfiguration.UsePersistence<LearningPersistence>();
 
                     var routing = transport.Routing();
+                    routing.MapBilling();
+                    routing.MapSales();
+                    routing.MapShipping();
 
-                    routing.RouteToEndpoint(
-                        assembly: typeof(ShippingLabelCreated).Assembly,
-                        destination: "LooselyCoupledMonolith");
-
-                    routing.RouteToEndpoint(
-                        assembly: typeof(OrderPlaced).Assembly,
-                        destination: "LooselyCoupledMonolith");
-
-                    //endpointConfiguration.SendOnly();
+                    endpointConfiguration.SendOnly();
 
                     return endpointConfiguration;
                 })

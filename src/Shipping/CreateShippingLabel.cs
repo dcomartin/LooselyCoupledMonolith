@@ -7,7 +7,9 @@ using Shipping.Contracts;
 
 namespace Shipping
 {
-    public class CreateShippingLabelHandler : IHandleMessages<OrderBilled>, IHandleMessages<CreateShippingLabel>
+    public class CreateShippingLabelHandler :
+        //IHandleMessages<OrderBilled>,
+        IHandleMessages<CreateShippingLabel>
     {
         private readonly ShippingDbContext _dbContext;
 
@@ -51,6 +53,13 @@ namespace Shipping
                 {
                     created.OrderId = message.OrderId;
                 });
+
+                /*
+                await context.Publish<Backordered>(backordered =>
+                {
+                    backordered.OrderId = message.OrderId;
+                });
+                */
 
                 await trx.CommitAsync();
             }

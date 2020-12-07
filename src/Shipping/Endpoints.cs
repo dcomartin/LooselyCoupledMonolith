@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
+using NServiceBus;
+using Shipping.Contracts;
 
 namespace Shipping
 {
@@ -12,6 +14,13 @@ namespace Shipping
             {
                 await context.Response.WriteAsync("Hello Shipping!");
             });
+        }
+
+        public static void MapShipping(this RoutingSettings<LearningTransport> routing)
+        {
+            routing.RouteToEndpoint(
+                assembly: typeof(ShippingLabelCreated).Assembly,
+                destination: "LooselyCoupledMonolith");
         }
     }
 }
