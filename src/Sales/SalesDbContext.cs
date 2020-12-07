@@ -1,4 +1,3 @@
-using System;
 using Microsoft.EntityFrameworkCore;
 
 namespace Sales
@@ -9,7 +8,7 @@ namespace Sales
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=localhost\\SQLExpress;Database=Demo;Trusted_Connection=Yes;");
+            optionsBuilder.UseInMemoryDatabase("LooselyCoupledMonolith_Sales");
             base.OnConfiguring(optionsBuilder);
         }
     }

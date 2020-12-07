@@ -40,23 +40,18 @@ namespace Sales
 
         public async Task Handle(PlaceOrder message, IMessageHandlerContext context)
         {
-            using (var transaction = await _dbContext.Database.BeginTransactionAsync())
+            await _dbContext.Orders.AddAsync(new Order
             {
-                await _dbContext.Orders.AddAsync(new Order
-                {
-                    OrderId = message.OrderId,
-                    Status = OrderStatus.Pending
-                });
-                await _dbContext.SaveChangesAsync();
+                OrderId = message.OrderId,
+                Status = OrderStatus.Pending
+            });
+            await _dbContext.SaveChangesAsync();
 
-                var orderPlaced = new OrderPlaced
-                {
-                    OrderId = message.OrderId
-                };
-                await context.Publish(orderPlaced);
-
-                await transaction.CommitAsync();
-            }
+            var orderPlaced = new OrderPlaced
+            {
+                OrderId = message.OrderId
+            };
+            await context.Publish(orderPlaced);
         }
     }
 

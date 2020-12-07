@@ -20,49 +20,39 @@ namespace Shipping
 
         public async Task Handle(OrderBilled message, IMessageHandlerContext context)
         {
-            using (var trx = await _dbContext.Database.BeginTransactionAsync())
+            await _dbContext.ShippingLabels.AddAsync(new ShippingLabel
             {
-                await _dbContext.ShippingLabels.AddAsync(new ShippingLabel
-                {
-                    OrderId = message.OrderId,
-                    OrderDate = DateTime.UtcNow
-                });
-                await _dbContext.SaveChangesAsync();
+                OrderId = message.OrderId,
+                OrderDate = DateTime.UtcNow
+            });
+            await _dbContext.SaveChangesAsync();
 
-                await context.Publish<ShippingLabelCreated>(created =>
-                {
-                    created.OrderId = message.OrderId;
-                });
-
-                await trx.CommitAsync();
-            }
+            await context.Publish<ShippingLabelCreated>(created =>
+            {
+                created.OrderId = message.OrderId;
+            });
         }
 
         public async Task Handle(CreateShippingLabel message, IMessageHandlerContext context)
         {
-            using (var trx = await _dbContext.Database.BeginTransactionAsync())
+            await _dbContext.ShippingLabels.AddAsync(new ShippingLabel
             {
-                await _dbContext.ShippingLabels.AddAsync(new ShippingLabel
-                {
-                    OrderId = message.OrderId,
-                    OrderDate = DateTime.UtcNow
-                });
-                await _dbContext.SaveChangesAsync();
+                OrderId = message.OrderId,
+                OrderDate = DateTime.UtcNow
+            });
+            await _dbContext.SaveChangesAsync();
 
-                await context.Publish<ShippingLabelCreated>(created =>
-                {
-                    created.OrderId = message.OrderId;
-                });
+            await context.Publish<ShippingLabelCreated>(created =>
+            {
+                created.OrderId = message.OrderId;
+            });
 
-                /*
-                await context.Publish<Backordered>(backordered =>
-                {
-                    backordered.OrderId = message.OrderId;
-                });
-                */
-
-                await trx.CommitAsync();
-            }
+            /*
+            await context.Publish<Backordered>(backordered =>
+            {
+                backordered.OrderId = message.OrderId;
+            });
+            */
         }
     }
 
