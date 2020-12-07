@@ -7,7 +7,7 @@ namespace Shipping
         public static void AddShipping(this IServiceCollection serviceCollection)
         {
             serviceCollection.AddDbContext<ShippingDbContext>();
-            serviceCollection.AddTransient<CreateShippingLabel>();
+            serviceCollection.AddTransient<CreateShippingLabelHandler>();
         }
     }
 }
