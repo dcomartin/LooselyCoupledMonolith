@@ -18,6 +18,5 @@ namespace Sales
         Pending = 0,
         ReadyToShip = 1,
         Shipped = 2,
-
     }
 }

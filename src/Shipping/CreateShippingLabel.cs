@@ -1,50 +1,98 @@
 using System;
 using System.Threading.Tasks;
-using DotNetCore.CAP;
+using Billing.Contracts;
+using NServiceBus;
 using Sales.Contracts;
 using Shipping.Contracts;
 
 namespace Shipping
 {
-    public class CreateShippingLabel : ICapSubscribe
+    public class CreateShippingLabelHandler : IHandleMessages<OrderBilled>, IHandleMessages<CreateShippingLabel>
     {
-        private readonly ICapPublisher _publisher;
         private readonly ShippingDbContext _dbContext;
 
-        public CreateShippingLabel(ICapPublisher publisher, ShippingDbContext dbContext)
+        public CreateShippingLabelHandler(ShippingDbContext dbContext)
         {
-            _publisher = publisher;
             _dbContext = dbContext;
         }
 
-        [CapSubscribe(nameof(OrderPlaced))]
-        public async Task Handle(OrderPlaced orderPlaced, [FromCap]CapHeader header)
+        public async Task Handle(OrderBilled message, IMessageHandlerContext context)
         {
-            var messageId = header.GetMessageId();
-            if (await _dbContext.HasBeenProcessed(messageId, nameof(CreateShippingLabel)))
-            {
-                return;
-            }
-
-            using (var trx = _dbContext.Database.BeginTransaction(_publisher))
+            using (var trx = await _dbContext.Database.BeginTransactionAsync())
             {
                 await _dbContext.ShippingLabels.AddAsync(new ShippingLabel
                 {
-                    OrderId = orderPlaced.OrderId,
+                    OrderId = message.OrderId,
                     OrderDate = DateTime.UtcNow
                 });
                 await _dbContext.SaveChangesAsync();
 
-                await _dbContext.IdempotentConsumer(messageId, nameof(CreateShippingLabel));
-
-                await _publisher.PublishAsync(nameof(ShippingLabelCreated), new ShippingLabelCreated
+                await context.Publish<ShippingLabelCreated>(created =>
                 {
-                    OrderId = orderPlaced.OrderId
+                    created.OrderId = message.OrderId;
                 });
 
                 await trx.CommitAsync();
             }
+        }
 
+        public async Task Handle(CreateShippingLabel message, IMessageHandlerContext context)
+        {
+            using (var trx = await _dbContext.Database.BeginTransactionAsync())
+            {
+                await _dbContext.ShippingLabels.AddAsync(new ShippingLabel
+                {
+                    OrderId = message.OrderId,
+                    OrderDate = DateTime.UtcNow
+                });
+                await _dbContext.SaveChangesAsync();
+
+                await context.Publish<ShippingLabelCreated>(created =>
+                {
+                    created.OrderId = message.OrderId;
+                });
+
+                await trx.CommitAsync();
+            }
+        }
+    }
+
+    public class CreateShippingLabelSagaData : ContainSagaData
+    {
+        public Guid OrderId { get; set; }
+        public bool IsOrderPlaced { get; set; }
+        public bool IsOrderBilled { get; set; }
+    }
+
+    public class CreateShippingLabelSaga : Saga<CreateShippingLabelSagaData>,
+        IAmStartedByMessages<OrderPlaced>,
+        IAmStartedByMessages<OrderBilled>
+    {
+        protected override void ConfigureHowToFindSaga(SagaPropertyMapper<CreateShippingLabelSagaData> mapper)
+        {
+            mapper.ConfigureMapping<OrderPlaced>(message => message.OrderId).ToSaga(sagaData => sagaData.OrderId);
+            mapper.ConfigureMapping<OrderBilled>(message => message.OrderId).ToSaga(sagaData => sagaData.OrderId);
+        }
+
+        public Task Handle(OrderPlaced message, IMessageHandlerContext context)
+        {
+            Data.IsOrderPlaced = true;
+            return ProcessOrder(context);
+        }
+
+        public Task Handle(OrderBilled message, IMessageHandlerContext context)
+        {
+            Data.IsOrderBilled = true;
+            return ProcessOrder(context);
+        }
+
+        private async Task ProcessOrder(IMessageHandlerContext context)
+        {
+            if (Data.IsOrderPlaced && Data.IsOrderBilled)
+            {
+                await context.SendLocal(new CreateShippingLabel() { OrderId = Data.OrderId });
+                MarkAsComplete();
+            }
         }
     }
 }

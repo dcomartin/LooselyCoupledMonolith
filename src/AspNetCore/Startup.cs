@@ -1,8 +1,10 @@
-using DotNetCore.CAP;
+using System.Threading;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using NServiceBus;
 using Sales;
 using Shipping;
 
@@ -18,13 +20,7 @@ namespace AspNetCore
             services.AddShipping();
             services.AddControllers();
 
-            services.AddCap(options =>
-            {
-                options.ConsumerThreadCount = 0;
-                options.UseSqlServer("Server=localhost\\SQLExpress;Database=Demo;Trusted_Connection=Yes;");
-                options.UseRabbitMQ("localhost");
-                options.UseDashboard();
-            });
+            //services.AddHostedService<NServiceBusHostedService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -37,8 +33,6 @@ namespace AspNetCore
 
             app.UseRouting();
 
-            app.UseCapDashboard();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
@@ -46,5 +40,26 @@ namespace AspNetCore
                 endpoints.MapShipping();
             });
         }
+    }
+}
+
+public class NServiceBusHostedService : BackgroundService
+{
+    private IEndpointInstance _endpointInstance;
+
+    protected override async Task ExecuteAsync(CancellationToken stoppingToken)
+    {
+        var endpointConfiguration = new EndpointConfiguration("Demo");
+
+        var transport = endpointConfiguration.UseTransport<LearningTransport>();
+        var persistence = endpointConfiguration.UsePersistence<LearningPersistence>();
+
+        _endpointInstance = await Endpoint.Start(endpointConfiguration).ConfigureAwait(false);
+    }
+
+    public override async Task StopAsync(CancellationToken cancellationToken)
+    {
+        await _endpointInstance.Stop();
+        await base.StopAsync(cancellationToken);
     }
 }

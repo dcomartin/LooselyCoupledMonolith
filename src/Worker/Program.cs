@@ -1,5 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
+﻿using Microsoft.Extensions.Hosting;
 using Sales;
 using Shipping;
 
@@ -18,13 +17,6 @@ namespace Worker
                 {
                     services.AddSales();
                     services.AddShipping();
-
-                    services.AddCap(options =>
-                    {
-                        options.UseSqlServer("Server=localhost\\SQLExpress;Database=Demo;Trusted_Connection=Yes;");
-                        options.UseRabbitMQ("localhost");
-                    });
-
                 });
     }
 }

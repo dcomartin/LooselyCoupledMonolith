@@ -1,11 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using NServiceBus;
+using Sales.Contracts;
+using Shipping.Contracts;
 
 namespace AspNetCore
 {
@@ -18,6 +15,26 @@ namespace AspNetCore
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+                .UseNServiceBus(context =>
+                {
+                    var endpointConfiguration = new EndpointConfiguration("LooselyCoupledMonolith");
+                    var transport = endpointConfiguration.UseTransport<LearningTransport>();
+                    var persistence = endpointConfiguration.UsePersistence<LearningPersistence>();
+
+                    var routing = transport.Routing();
+
+                    routing.RouteToEndpoint(
+                        assembly: typeof(ShippingLabelCreated).Assembly,
+                        destination: "LooselyCoupledMonolith");
+
+                    routing.RouteToEndpoint(
+                        assembly: typeof(OrderPlaced).Assembly,
+                        destination: "LooselyCoupledMonolith");
+
+                    //endpointConfiguration.SendOnly();
+
+                    return endpointConfiguration;
+                })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();

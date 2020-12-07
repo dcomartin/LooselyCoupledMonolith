@@ -1,11 +1,11 @@
 using System.Threading.Tasks;
-using DotNetCore.CAP;
 using Microsoft.EntityFrameworkCore;
+using NServiceBus;
 using Sales.Contracts;
 
 namespace Shipping
 {
-    public class CancelShippingLabel : ICapSubscribe
+    public class CancelShippingLabel : IHandleMessages<OrderCancelled>
     {
         private readonly ShippingDbContext _dbContext;
 
@@ -14,10 +14,9 @@ namespace Shipping
             _dbContext = dbContext;
         }
 
-        [CapSubscribe(nameof(OrderPlaced))]
-        public async Task Handle(OrderCancelled orderCancelled)
+        public async Task Handle(OrderCancelled message, IMessageHandlerContext context)
         {
-            var order = await _dbContext.ShippingLabels.SingleAsync(x => x.OrderId == orderCancelled.OrderId);
+            var order = await _dbContext.ShippingLabels.SingleAsync(x => x.OrderId == message.OrderId);
             order.Cancelled = true;
             await _dbContext.SaveChangesAsync();
         }

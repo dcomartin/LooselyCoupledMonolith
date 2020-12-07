@@ -3,7 +3,7 @@ using NServiceBus;
 
 namespace Shipping.Contracts
 {
-    public class ShippingLabelCreated : IEvent
+    public class CreateShippingLabel : ICommand
     {
         public Guid OrderId { get; set; }
     }

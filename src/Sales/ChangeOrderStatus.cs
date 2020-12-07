@@ -1,11 +1,11 @@
 using System.Threading.Tasks;
-using DotNetCore.CAP;
 using Microsoft.EntityFrameworkCore;
+using NServiceBus;
 using Shipping.Contracts;
 
 namespace Sales
 {
-    public class ChangeOrderStatus : ICapSubscribe
+    public class ChangeOrderStatus : IHandleMessages<ShippingLabelCreated>
     {
         private readonly SalesDbContext _dbContext;
 
@@ -14,10 +14,9 @@ namespace Sales
             _dbContext = dbContext;
         }
 
-        [CapSubscribe(nameof(ShippingLabelCreated))]
-        public async Task Handle(ShippingLabelCreated shippingLabelCreated)
+        public async Task Handle(ShippingLabelCreated message, IMessageHandlerContext context)
         {
-            var order = await _dbContext.Orders.SingleAsync(x => x.OrderId == shippingLabelCreated.OrderId);
+            var order = await _dbContext.Orders.SingleAsync(x => x.OrderId == message.OrderId);
             order.Status = OrderStatus.ReadyToShip;
             await _dbContext.SaveChangesAsync();
         }

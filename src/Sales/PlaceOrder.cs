@@ -1,7 +1,7 @@
 using System;
 using System.Threading.Tasks;
-using DotNetCore.CAP;
 using Microsoft.AspNetCore.Mvc;
+using NServiceBus;
 using Sales.Contracts;
 
 namespace Sales
@@ -9,18 +9,18 @@ namespace Sales
     public class PlaceOrderController : Controller
     {
         private readonly SalesDbContext _dbContext;
-        private readonly ICapPublisher _publisher;
+        private readonly IMessageSession _messageSession;
 
-        public PlaceOrderController(SalesDbContext dbContext, ICapPublisher publisher)
+        public PlaceOrderController(SalesDbContext dbContext, IMessageSession messageSession)
         {
             _dbContext = dbContext;
-            _publisher = publisher;
+            _messageSession = messageSession;
         }
 
         [HttpPost("/sales/orders/{orderId:Guid}")]
         public async Task<IActionResult> Action([FromRoute] Guid orderId)
         {
-            using (var transaction = _dbContext.Database.BeginTransaction(_publisher))
+            using (var transaction = await _dbContext.Database.BeginTransactionAsync())
             {
                 await _dbContext.Orders.AddAsync(new Order
                 {
@@ -33,7 +33,7 @@ namespace Sales
                 {
                     OrderId = orderId
                 };
-                await _publisher.PublishAsync(nameof(OrderPlaced), orderPlaced);
+                await _messageSession.Publish(orderPlaced);
 
                 await transaction.CommitAsync();
             }

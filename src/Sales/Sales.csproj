@@ -11,11 +11,8 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.7" />
-    
-    <PackageReference Include="DotNetCore.CAP" Version="3.1.1" />
-    <PackageReference Include="DotNetCore.CAP.SqlServer" Version="3.1.1" />
-    <PackageReference Include="DotNetCore.CAP.RabbitMQ" Version="3.1.1" />
-    <PackageReference Include="Savorboard.CAP.InMemoryMessageQueue" Version="3.1.1" />
+
+    <PackageReference Include="NServiceBus" Version="7.4.4" />
     
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.7" />
   </ItemGroup>

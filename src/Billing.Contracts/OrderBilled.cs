@@ -1,9 +1,9 @@
 using System;
 using NServiceBus;
 
-namespace Shipping.Contracts
+namespace Billing.Contracts
 {
-    public class ShippingLabelCreated : IEvent
+    public class OrderBilled : IEvent
     {
         public Guid OrderId { get; set; }
     }
