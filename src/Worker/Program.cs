@@ -21,7 +21,7 @@ namespace Worker
 
                     services.AddCap(options =>
                     {
-                        options.UseInMemoryStorage();
+                        options.UseSqlServer("Server=localhost\\SQLExpress;Database=Demo;Trusted_Connection=Yes;");
                         options.UseRabbitMQ("localhost");
                     });
 

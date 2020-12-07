@@ -1,22 +1,50 @@
+using System;
+using System.Threading.Tasks;
 using DotNetCore.CAP;
-using Microsoft.Extensions.Logging;
 using Sales.Contracts;
+using Shipping.Contracts;
 
 namespace Shipping
 {
     public class CreateShippingLabel : ICapSubscribe
     {
-        private readonly ILogger<CreateShippingLabel> _logger;
+        private readonly ICapPublisher _publisher;
+        private readonly ShippingDbContext _dbContext;
 
-        public CreateShippingLabel(ILogger<CreateShippingLabel> logger)
+        public CreateShippingLabel(ICapPublisher publisher, ShippingDbContext dbContext)
         {
-            _logger = logger;
+            _publisher = publisher;
+            _dbContext = dbContext;
         }
 
         [CapSubscribe(nameof(OrderPlaced))]
-        public void Handle(OrderPlaced orderPlaced)
+        public async Task Handle(OrderPlaced orderPlaced, [FromCap]CapHeader header)
         {
-            _logger.LogInformation($"Order {orderPlaced.OrderId} was placed... lets create a new shipping label.");
+            var messageId = header.GetMessageId();
+            if (await _dbContext.HasBeenProcessed(messageId, nameof(CreateShippingLabel)))
+            {
+                return;
+            }
+
+            using (var trx = _dbContext.Database.BeginTransaction(_publisher))
+            {
+                await _dbContext.ShippingLabels.AddAsync(new ShippingLabel
+                {
+                    OrderId = orderPlaced.OrderId,
+                    OrderDate = DateTime.UtcNow
+                });
+                await _dbContext.SaveChangesAsync();
+
+                await _dbContext.IdempotentConsumer(messageId, nameof(CreateShippingLabel));
+
+                await _publisher.PublishAsync(nameof(ShippingLabelCreated), new ShippingLabelCreated
+                {
+                    OrderId = orderPlaced.OrderId
+                });
+
+                await trx.CommitAsync();
+            }
+
         }
     }
 }

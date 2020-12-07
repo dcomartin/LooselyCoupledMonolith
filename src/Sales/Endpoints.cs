@@ -14,6 +14,7 @@ namespace Sales
         {
             endpoints.MapPost("/sales", async context =>
             {
+
                 var orderPlaced = new OrderPlaced
                 {
                     OrderId = Guid.NewGuid()

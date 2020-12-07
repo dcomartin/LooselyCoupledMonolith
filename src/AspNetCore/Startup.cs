@@ -16,11 +16,12 @@ namespace AspNetCore
         {
             services.AddSales();
             services.AddShipping();
+            services.AddControllers();
 
             services.AddCap(options =>
             {
                 options.ConsumerThreadCount = 0;
-                options.UseInMemoryStorage();
+                options.UseSqlServer("Server=localhost\\SQLExpress;Database=Demo;Trusted_Connection=Yes;");
                 options.UseRabbitMQ("localhost");
                 options.UseDashboard();
             });
@@ -40,6 +41,7 @@ namespace AspNetCore
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllers();
                 endpoints.MapSales();
                 endpoints.MapShipping();
             });
