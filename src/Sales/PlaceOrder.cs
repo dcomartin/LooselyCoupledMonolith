@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Hangfire.MediatR;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Sales.Contracts;
 
 namespace Sales
 {
@@ -24,7 +25,7 @@ namespace Sales
         [HttpPost("/sales/orders/{orderId:Guid}")]
         public IActionResult Action([FromRoute] Guid orderId)
         {
-            _mediator.Enqueue("Place Order", new PlaceOrder
+            _mediator.Enqueue("Place Order", new OrderPlaced
             {
                 OrderId = orderId
             });
